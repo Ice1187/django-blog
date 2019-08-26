@@ -25,6 +25,7 @@ SECRET_KEY = '(z=des0j8zp_da5k$c_i9$4u$e7s@c4ci8(^clw4weyshzqt12'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# join 'ice1187.pythonanywhere.com' if deploied
 ALLOWED_HOSTS = []
 
 
@@ -119,3 +120,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Uncommet if deploied
+#STATIC_ROOT = '/home/Ice1187/blog/blog/static'
