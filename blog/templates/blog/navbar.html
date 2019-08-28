@@ -7,16 +7,23 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-      
+
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <!-- My setting -->
+    <title>
+      Ice1187's Blog
+    </title>
+      
 </head>
 
 <body>
  <nav>
     <div class="nav-wrapper">
-      <a href="#!" class="brand-logo"><i class="material-icons"cloud></i>Ice1187's Blog</a>
+      <a href="/blog/index.html" class="brand-logo"><i class="material-icons"cloud></i>
+      {% block navbarlogo %}Ice1187's Blog{% endblock navbarlogo %}</a>
       <ul class="right hide-on-med-and-down">
-        <li><a href="index.html"><i class="material-icons">home</i></a></li>
+        <li><a href="/blog/index.html"><i class="material-icons">home</i></a></li>
         <li><a href="writeup.html"><i class="material-icons">flag</i></a></li>
         <li><a href="bookreview.html"><i class="material-icons">import_contacts</i></a></li>
         <li><a href="mobile.html"><i class="material-icons">view_list</i></a></li>
@@ -25,8 +32,9 @@
   </nav>
 
 <div class="container">
-  {% block cards %}
-  {% endblock cards %}
+  {% block content %}
+  Content loading failed.
+  {% endblock content %}
 </div>
 
 <script defer type="text/javascript">M.AutoInit();</script>

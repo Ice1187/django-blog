@@ -1,10 +1,22 @@
-from django.shortcuts import render
 import datetime as dt
+from django.shortcuts import render
+from django.template import loader, Context
+from .models import WriteupCategory, WriteupArticle, WriteupCTF, WriteupTag, ReviewArticle
 
-# Create your views here.
+
 
 def index(request):
-    return render(request, 'blog/index.html')
+	writeups = WriteupArticle.objects.select_related('ctf')
+	writeupimg = WriteupCTF.objects.get(pk=1).img
+	reviews = ReviewArticle.objects.all()
+	reviewimg = ReviewArticle.objects.get(pk=1).img
+	img = {
+		'writeups': writeups,
+		'reviews': reviews,
+		'reviewimg': reviewimg,
+		'writeupimg':  writeupimg,
+		}
+	return render(request, 'blog/index.html', img)
 
 
 def bookreview(request):

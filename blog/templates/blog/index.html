@@ -1,22 +1,77 @@
-{% extends "blog/card.html" %}
+{% extends "blog/navbar.html" %}
+{% block content %}
 {% load static %}
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card waves-effect waves-light hoverable" >
+      <div class="card-image">
+        <img src="{{ reviewimg.url }}" style="
+        height: 300px;
+        object-fit: cover;
+        object-position: top;" 
+        alt={{ reviewimg.name }}>
+        <div class="card-action center-align">
+          <a href="#" style="font-size: 20px;">Book Review</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m6">
+    <div class="card waves-effect waves-light hoverable">
+      <div class="card-image">
+        <img src="{{ writeupimg.url }}" style="
+        height: 300px; 
+        object-fit: cover; 
+        object-position: top;" 
+        alt={{ writeupimg.name }}>
+        <div class="card-action center-align">
+          <a href="#" style="font-size: 20px;">CTF Writeup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-{# commet #} Card 1 - CTF Writeup
-  {% block CardTitle1 %}
-  CTF Writeup
-  {% endblock CardTitle1 %}
-  {% block CardInfo1 %}
-  {% block RecentWritup %}
-  There's no writeup yet.
-  {% endblock RecentWritup %}
-  {% endblock CardInfo1 %}
+<blockquote>
+  <h5>
+    Recent posts
+  </h5>
+</blockquote>
 
-{# commet #} Card 2 - Book Review
-  {% block CardTitle2 %}
-  Book Review
-  {% endblock CardTitle2 %}
-  {% block CardInfo2 %}
-  {% block RecentReview %}
-  There's no review yet.
-  {% endblock RecentReview %}
-  {% endblock CardInfo2 %}
+<div class="row">
+{% for writeup in writeups %}
+  <div class="col s12 m3">
+    <div class="card waves-effect waves-light hoverable" >
+      <div class="card-image">
+        <img src="{{ writeup.ctf.img.url }}" style="
+        height: 300px;
+        object-fit: cover;
+        object-position: top;" 
+        alt={{ writeup.ctf.img.name }}>
+        <div class="card-title">
+          <p style="color: black;">Writeup - <br>{{ writeup.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% for review in reviews %}
+  <div class="col s12 m3">
+    <div class="card waves-effect waves-light hoverable" >
+      <div class="card-image">
+        <img src="{{ review.img.url }}" style="
+        height: 300px;
+        object-fit: cover;
+        object-position: top;" 
+        alt={{ review.img.name }}>
+        <div class="card-title">
+          <p>Review - <br>{{ review.name }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+
+{% endblock content %}

@@ -25,8 +25,10 @@ SECRET_KEY = '(z=des0j8zp_da5k$c_i9$4u$e7s@c4ci8(^clw4weyshzqt12'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# join 'ice1187.pythonanywhere.com' if deploied
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    # uncommet if deploied
+    # 'ice1187.pythonanywhere.com' 
+    ]
 
 
 # Application definition
@@ -119,7 +121,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 
-# Uncommet if deploied
-#STATIC_ROOT = '/home/Ice1187/blog/blog/static'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+MEDIA_URL = '/media/'
