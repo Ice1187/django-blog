@@ -7,20 +7,30 @@ from .models import WriteupCategory, WriteupArticle, WriteupCTF, WriteupTag, Rev
 
 def index(request):
 	writeups = WriteupArticle.objects.select_related('ctf')
-	writeupimg = WriteupCTF.objects.get(pk=1).img
+	writeupimg = WriteupCTF.objects.latest().img
 	reviews = ReviewArticle.objects.all()
-	reviewimg = ReviewArticle.objects.get(pk=1).img
+	reviewimg = ReviewArticle.objects.latest().img
 	img = {
-		'writeups': writeups,
-		'reviews': reviews,
+		'writeups': writeups[:4],
+		'reviews': reviews[:4],
 		'reviewimg': reviewimg,
 		'writeupimg':  writeupimg,
 		}
 	return render(request, 'blog/index.html', img)
 
 
-def bookreview(request):
-    return render(request, 'blog/bookreview.html')
+def writeups(request):
+	writeups = WriteupArticle.objects.select_related('ctf')
+	ctfs = WriteupCTF.objects.all()
+	img = {
+		'writeups': writeups[:8],
+		'ctfs': ctfs[:3],
+	}
+	return render(request, 'blog/writeups.html', img)
+
+
+def bookreviews(request):
+    return render(request, 'blog/bookreviews.html')
 
 
 def test(request):

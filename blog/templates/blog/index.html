@@ -1,14 +1,14 @@
 {% extends "blog/navbar.html" %}
 {% block content %}
-{% load static %}
 <div class="row">
-  <div class="col s12 m6">
-    <div class="card waves-effect waves-light hoverable" >
+  <div class="col s12 m6 l6">
+    <div class="card waves-effect waves-light hoverable" style="width: 100%">
       <div class="card-image">
-        <img src="{{ reviewimg.url }}" style="
+        <img src="{{ reviewimg.url }}"
+        style="
         height: 300px;
         object-fit: cover;
-        object-position: top;" 
+        object-position: top;"
         alt={{ reviewimg.name }}>
         <div class="card-action center-align">
           <a href="#" style="font-size: 20px;">Book Review</a>
@@ -16,19 +16,22 @@
       </div>
     </div>
   </div>
-  <div class="col s12 m6">
-    <div class="card waves-effect waves-light hoverable">
+  <div class="col s12 m6 l6">
+    <a class="center-align" href="writeups/">
+    <div class="card waves-effect waves-light hoverable" style="width: 100%">
       <div class="card-image">
-        <img src="{{ writeupimg.url }}" style="
+        <img src="{{ writeupimg.url }}"
+        style="
         height: 300px; 
         object-fit: cover; 
         object-position: top;" 
         alt={{ writeupimg.name }}>
         <div class="card-action center-align">
-          <a href="#" style="font-size: 20px;">CTF Writeup</a>
+          <a href="writeups.html" style="font-size: 20px;">CTF Writeup</a>
         </div>
       </div>
     </div>
+  </a>
   </div>
 </div>
 
@@ -40,7 +43,7 @@
 
 <div class="row">
 {% for writeup in writeups %}
-  <div class="col s12 m3">
+  <div class="col s12 m6 l3">
     <div class="card waves-effect waves-light hoverable" >
       <div class="card-image">
         <img src="{{ writeup.ctf.img.url }}" style="
@@ -56,8 +59,8 @@
   </div>
 {% endfor %}
 {% for review in reviews %}
-  <div class="col s12 m3">
-    <div class="card waves-effect waves-light hoverable" >
+  <div class="col s12 m6 l3">
+    <div class="card waves-effect waves-light hoverable" style="width: 100%;" >
       <div class="card-image">
         <img src="{{ review.img.url }}" style="
         height: 300px;

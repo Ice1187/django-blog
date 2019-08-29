@@ -12,6 +12,7 @@ class WriteupCTF(models.Model):
 
 	class Meta():
 		ordering = ["-date", "name"]
+		get_latest_by = "-date"
 
 	def __str__(self):
 		return self.name
