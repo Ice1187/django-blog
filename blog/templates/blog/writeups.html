@@ -47,18 +47,20 @@
 <div class="row">
 {% for ctf in ctfs %}
   <div class="col s12 m4 l4">
-    <div class="card waves-effect waves-light hoverable" >
-      <div class="card-image">
-        <img src="{{ ctf.img.url }}" style="
-        height: 300px;
-        object-fit: cover;
-        object-position: top;" 
-        alt={{ ctf.img.name }}>
-        <div class="card-title">
-          <p style="color: black;">{{ ctf.name }}</p>
+  	<a href="{{ ctf.name }}">
+      <div class="card waves-effect waves-light hoverable" >
+        <div class="card-image">
+          <img src="{{ ctf.img.url }}" style="
+          height: 300px;
+          object-fit: cover;
+          object-position: top;" 
+          alt={{ ctf.img.name }}>
+          <div class="card-title">
+            <p style="color: black;">{{ ctf.name }}</p>
+          </div>
         </div>
       </div>
-    </div>
+	</a>
   </div>
 {% endfor %}
 </div>

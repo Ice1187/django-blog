@@ -6,8 +6,9 @@ class WriteupCTF(models.Model):
 	name = models.CharField(default='Unknow', max_length=50)
 	date = models.DateField()
 	img = models.ImageField(upload_to='writeup/', blank=True)
-	score = models.IntegerField(default=0)
+	team = models.CharField(max_length=255, default='Ice1187')
 	rank = models.CharField(max_length=10, blank=True)
+	score = models.IntegerField(default=0)
 	trashtalk = models.TextField(blank=True)
 
 	class Meta():

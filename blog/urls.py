@@ -5,8 +5,9 @@ app_name = 'blog'
 urlpatterns = [
     path('', views.index, name='index'),
     path('index.html', views.index, name='index'),
-    path('bookreviews.html', views.bookreviews, name='bookreviews'),
     path('writeups/', views.writeups, name='writeups'),
+    path('writeups/<slug:ctfname>/', views.ctf, name='ctf'),
+    path('bookreviews.html', views.bookreviews, name='bookreviews'),
     path('test/', views.test, name='test'),
 ] 
 

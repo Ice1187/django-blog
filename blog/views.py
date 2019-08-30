@@ -29,6 +29,22 @@ def writeups(request):
 	return render(request, 'blog/writeups.html', img)
 
 
+def ctf(request, ctfname):
+	ctf = WriteupCTF.objects.get(name=ctfname)
+	articles = ctf.writeuparticle_set.order_by('category__name')
+	categories = { 'Rev': [], 'Pwn': [], 'Web': [], 'Crypto': [], 'Forensic': [], 'Misc': []}
+	for article in articles:
+		category = article.category.name
+		if category not in categories.keys():
+			categories.update(dict(category, []))
+		categories[category].append(article)
+	var = {
+		'ctf': ctf, 
+		'categories': categories,
+	}
+	return render(request, 'blog/ctf.html', var)
+
+
 def bookreviews(request):
     return render(request, 'blog/bookreviews.html')
 
