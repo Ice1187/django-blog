@@ -1,4 +1,7 @@
-{% extends "blog/navbar.html" %}
+{% extends "blog/base.html" %}
+{% block logolink %}
+  {% url 'blog:writeups' %}
+{% endblock logolink %}
 {% block navbarlogo %}
   Ice1187's Writeups of {{ ctf.name }}
 {% endblock navbarlogo %}
@@ -29,10 +32,10 @@
 {% for article in articles %}
  <div class="row">
     <div class="col s12 m6 l4">
-      <a href="{{ article.url }}">
+      <a href="{% url 'blog:problem' ctf.name article.name %}">
         <div class="card blue-grey darken-1 waves-effect waves-light hoverable" style="width: 100%;">
           <div class="card-content white-text">
-            <span class="card-title center-align">{{ article }}</span>
+            <span class="card-title center-align">{{ article.name }}</span>
           </div>
         </div>
       </a>

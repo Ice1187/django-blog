@@ -27,8 +27,8 @@ class WriteupCategory(models.Model):
 
 
 class WriteupArticle(models.Model):
-	ctf = models.ForeignKey('WriteupCTF', on_delete=models.SET_DEFAULT, default='Unknow')
-	category = models.ForeignKey('WriteupCategory', on_delete=models.SET_DEFAULT, default='Uncategorize')
+	ctf = models.ForeignKey('WriteupCTF', default='Unknow', on_delete=models.SET_DEFAULT)
+	category = models.ForeignKey('WriteupCategory', default='Uncategorize', on_delete=models.SET_DEFAULT,)
 	name = models.CharField(max_length=50)
 	description = models.TextField(blank=True)
 	hint = models.TextField(blank=True)

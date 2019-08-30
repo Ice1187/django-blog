@@ -1,4 +1,4 @@
-{% extends "blog/navbar.html" %}
+{% extends "blog/base.html" %}
 {% block content %}
 <div class="row">
   <div class="col s12 m6 l6">
@@ -17,7 +17,7 @@
     </div>
   </div>
   <div class="col s12 m6 l6">
-    <a class="center-align" href="writeups/">
+    <a class="center-align" href="{% url 'blog:writeups' %}">
       <div class="card waves-effect waves-light hoverable" style="width: 100%">
         <div class="card-image">
           <img src="{{ writeupimg.url }}"
@@ -27,7 +27,7 @@
           object-position: top;" 
           alt={{ writeupimg.name }}>
           <div class="card-action center-align">
-            <a href="writeups/" style="font-size: 20px;">CTF Writeup</a>
+            <a href="{% url 'blog:writeups' %}" style="font-size: 20px;">CTF Writeup</a>
           </div>
         </div>
       </div>
