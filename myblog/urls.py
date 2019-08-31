@@ -19,7 +19,12 @@ from django.conf.urls.static import static
 from django.urls import path, include, re_path
 
 urlpatterns = [
+    # apps
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),
-    # re_path(r'.*', include('blog.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+    # plugin
+    re_path(r'^markdownx/', include('markdownx.urls')),
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

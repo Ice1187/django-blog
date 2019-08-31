@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, re_path, include
 from . import views
 
 app_name = 'blog'
@@ -10,5 +10,5 @@ urlpatterns = [
     path('writeups/<slug:ctfname>/<str:problemname>', views.problem, name='problem'),
     path('bookreviews.html', views.bookreviews, name='bookreviews'),
     path('test/', views.test, name='test'),
+    re_path(r'^markdownx/', include('markdownx.urls')),
 ] 
-
