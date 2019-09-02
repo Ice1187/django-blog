@@ -8,7 +8,7 @@ def redirect_to_index(request):
 	return redirect('blog:index')
 
 def index(request):
-	writeups = WriteupArticle.objects.select_related('ctf')
+	writeups = WriteupArticle.objects.all()
 	writeupimg = WriteupCTF.objects.latest().img
 	reviews = ReviewArticle.objects.all()
 	reviewimg = ReviewArticle.objects.latest().img

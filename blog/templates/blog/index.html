@@ -44,18 +44,20 @@
 <div class="row">
 {% for writeup in writeups %}
   <div class="col s12 m6 l3">
-    <div class="card waves-effect waves-light hoverable" >
-      <div class="card-image">
-        <img src="{{ writeup.ctf.img.url }}" style="
-        height: 300px;
-        object-fit: cover;
-        object-position: top;" 
-        alt={{ writeup.ctf.img.name }}>
-        <div class="card-title">
-          <p style="color: black;">Writeup - <br>{{ writeup.name }}</p>
+    <a href="{% url 'blog:problem' writeup.ctf writeup.name %}"> 
+      <div class="card waves-effect waves-light hoverable" >
+        <div class="card-image">
+          <img src="{{ writeup.ctf.img.url }}" style="
+          height: 300px;
+          object-fit: cover;
+          object-position: top;" 
+          alt={{ writeup.ctf.img.name }}>
+          <div class="card-title">
+            <p style="color: black;">Writeup - <br>{{ writeup.name }}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </a>
   </div>
 {% endfor %}
 {% for review in reviews %}
