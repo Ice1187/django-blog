@@ -1,0 +1,64 @@
+{% extends "blog/base.html" %}
+{% load static %}
+{% block logolink %}
+  {% url 'blog:ctf' ctf.name %}
+{% endblock logolink %}
+{% block navbarlogo %}
+  Ice1187's Writeup of {{ ctf.name }}
+{% endblock navbarlogo %}
+{% block content %}
+
+<div align="center">
+<br>
+<h2>{{ problem.category }} - {{ problem.name }} </h2>
+<br>
+</div>
+
+<div align="center">
+  {% for tag in problem.tags.all %}
+    <code class="tags">{{ tag.name }}</code>
+    <style>
+    	.tags {
+    		font-size: 13px;
+	    	background-color: #E5E7E9;
+    		border: 3px solid #E5E7E9;
+	    	border-radius: 5px; 
+	    	margin: 0px 5px 0px 5px;
+	    }
+    </style>
+  {% endfor %}
+</div>
+<blockquote>
+  <h4 style="line-height: 2.0;">
+    <strong>Description</strong>
+  </h4>
+  <div>
+    <h6>{{ problem.description }}</h6>
+  </div>
+
+  {% if problem.hint %}
+  <div>
+    <h5 style="line-height: 2.0;">
+      <strong>Hint</strong>
+    </h5>
+    <div>
+      <h6>{{ problem.hint }}</h6>
+    </div>
+  </div>
+  {% endif %}
+</blockquote>
+<hr>
+<blockquote>
+  <h4 style="line-height: 2.0;">
+    <strong>Solution</strong>
+  </h4>
+</blockquote>
+<div>
+  {{ problem.md_solution|safe }} 
+</div>
+
+<style type="text/css">
+	word-wrap:break-word;
+</style>
+
+{% endblock content %}

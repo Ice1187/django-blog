@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% include "blog/header.html" %}
+</head>
+
+<body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="{% block logolink %}/blog/index.html{% endblock logolink %}" class="brand-logo">
+        <i class="material-icons"></i>
+          {% block navbarlogo %}
+            Ice1187's Blog
+          {% endblock navbarlogo %}
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="{% url 'blog:index' %}"><i class="material-icons">home</i></a></li>
+        <li><a href="{% url 'blog:writeups' %}"><i class="material-icons">flag</i></a></li>
+        <li><a href="bookreviews.html"><i class="material-icons">import_contacts</i></a></li>
+        <li><a href="mobile.html"><i class="material-icons">view_list</i></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    {% block content %}
+      Content loading failed.
+    {% endblock content %}
+  </div>
+
+  {% include "blog/footer.html" %}
+
+  <script defer type="text/javascript">M.AutoInit();</script>
+</body>
+</html>
